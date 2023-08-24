@@ -59,7 +59,7 @@ local plugins = {
       "kyazdani42/nvim-web-devicons",
     },
     after = "plenary.nvim",
-    cmd={
+    cmd = {
       'DiffviewOpen',
       'DiffviewFileHistory',
       'DiffviewClose',
@@ -70,7 +70,21 @@ local plugins = {
     config = function()
       require "custom.configs.diffview"
     end
-  }
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim"
+    },
+    config = function()
+      require("telescope").load_extension("lazygit")
+    end,
+    cmd = {
+      'LazyGit'
+    },
+  },
 
   -- To make a plugin not be loaded
   -- {
